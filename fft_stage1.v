@@ -140,8 +140,8 @@ module fft_stage1(
 		 stage1_data5_out_real  = $signed(stage1_data5_in[63:32]) + $signed(stage1_data13_in[63:32]);
 		 stage1_data6_out_real  = $signed(stage1_data6_in[63:32]) + $signed(stage1_data14_in[63:32]);
 		 stage1_data7_out_real  = $signed(stage1_data7_in[63:32]) + $signed(stage1_data15_in[63:32]);
-		 stage1_data8_out_real  = $signed(stage1_data0_in[63:32]) - $signed(stage1_data8_in[63:32]);
 		 
+		 stage1_data8_out_real  = $signed(stage1_data0_in[63:32]) - $signed(stage1_data8_in[63:32]);
 		 stage1_data9_out_real  = $signed(W1_real) * ( $signed(stage1_data1_in[63:32]) - $signed(stage1_data9_in[63:32])  );
 		 stage1_data10_out_real = $signed(W2_real) * ( $signed(stage1_data2_in[63:32]) - $signed(stage1_data10_in[63:32]) );
 		 stage1_data11_out_real = $signed(W3_real) * ( $signed(stage1_data3_in[63:32]) - $signed(stage1_data11_in[63:32]) );
@@ -159,14 +159,14 @@ module fft_stage1(
 		 stage1_data5_out_img  = 32'd0;
 		 stage1_data6_out_img  = 32'd0;
 		 stage1_data7_out_img  = 32'd0;
-		 stage1_data8_out_img  = 32'd0;
 		 
+		 stage1_data8_out_img  = 32'd0;
 		 stage1_data9_out_img  = $signed(W1_img) * ( $signed(stage1_data1_in[63:32]) - $signed(stage1_data9_in[63:32]) );
 		 stage1_data10_out_img = $signed(W2_img) * ( $signed(stage1_data2_in[63:32]) - $signed(stage1_data10_in[63:32]) );
 		 stage1_data11_out_img = $signed(W3_img) * ( $signed(stage1_data3_in[63:32]) - $signed(stage1_data11_in[63:32]) );
 		 stage1_data12_out_img_= $signed(stage1_data4_in[63:32]) - $signed(stage1_data12_in[63:32]);
 		 stage1_data12_out_img__=$signed(~stage1_data12_out_img_)+$signed(32'h0000_0001);
-		 stage1_data12_out_img = {{8{stage1_data12_out_img__[31]}},stage1_data12_out_img__[31:8],{8{stage1_data12_out_img__[31]}},stage1_data12_out_img__[31:8]};
+		 stage1_data12_out_img = {{8{stage1_data12_out_img__[31]}},stage1_data12_out_img__[31:8]};
 		 //stage1_data12_out_img = -1*$signed(stage1_data4_in[63:32]) - $signed(stage1_data12_in[63:32]);
 		 stage1_data13_out_img = $signed(W5_img) * ( $signed(stage1_data5_in[63:32]) - $signed(stage1_data13_in[63:32]) );
 		 stage1_data14_out_img = $signed(W6_img) * ( $signed(stage1_data6_in[63:32]) - $signed(stage1_data14_in[63:32]) );

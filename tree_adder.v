@@ -89,24 +89,37 @@ always@(*)
 begin
 	
 	stage2_add[0]=$signed(add1)+$signed(add2);
+	
 	stage2_add[1]=$signed(add3)+$signed(add4);
+	
 	stage2_add[2]=$signed(add5)+$signed(add6);
+	
 	stage2_add[3]=$signed(add7)+$signed(add8);
+	
 	stage2_add[4]=$signed(add9)+$signed(add10);
 	
 	stage2_add[5]=$signed(add11)+$signed(add12);
+	
 	stage2_add[6]=$signed(add13)+$signed(add14);
+	
 	stage2_add[7]=$signed(add15)+$signed(add16);
+	
 	stage2_add[8]=$signed(add17)+$signed(add18);
+	
 	stage2_add[9]=$signed(add19)+$signed(add20);
 	
 	stage2_add[10]=$signed(add21)+$signed(add22);
+	
 	stage2_add[11]=$signed(add23)+$signed(add24);
+	
 	stage2_add[12]=$signed(add25)+$signed(add26);
+	
 	stage2_add[13]=$signed(add27)+$signed(add28);
+	
 	stage2_add[14]=$signed(add29)+$signed(add30);
 	
-	stage2_add[15]=$signed(add30)+$signed(add31);
+	stage2_add[15]=$signed(add31)+$signed(add32);
+	
 	for (i=0;i<8;i=i+1)
 	begin
 		stage3_add[i]=$signed(stage2_add[i*2])+$signed( stage2_add[(i*2)+1] );
