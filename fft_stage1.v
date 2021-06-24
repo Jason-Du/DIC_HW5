@@ -173,6 +173,12 @@ module fft_stage1(
 		 stage1_data15_out_img = $signed(W7_img) * ( $signed(stage1_data7_in[63:32]) - $signed(stage1_data15_in[63:32]) );
 		 
 		 
+		 
+		 
+		 
+		 
+		 
+		 
 		 stage1_data0_out={{8{stage1_data0_out_real[31]}},stage1_data0_out_real[31:8],{8{stage1_data0_out_img[31]}},stage1_data0_out_img[31:8]};
 		 stage1_data1_out={{8{stage1_data1_out_real[31]}},stage1_data1_out_real[31:8],{8{stage1_data1_out_img[31]}},stage1_data1_out_img[31:8]};
 		 stage1_data2_out={{8{stage1_data2_out_real[31]}},stage1_data2_out_real[31:8],{8{stage1_data2_out_img[31]}},stage1_data2_out_img[31:8]};

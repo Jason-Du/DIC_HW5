@@ -6,8 +6,8 @@
 `define fir_fail_limit 48
 `define fft_fail_limit 48
 
-`define fir_range_limit 3
-`define fft_range_limit 10
+`define fir_range_limit 2
+`define fft_range_limit 20
 `include "FAS.v"
 module testfixture1;
 

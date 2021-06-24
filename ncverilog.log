@@ -1,11 +1,11 @@
 ncverilog(64): 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Jun 24, 2021 at 08:08:29 CST
+TOOL:	ncverilog	15.20-s039: Started on Jun 24, 2021 at 21:54:11 CST
 ncverilog
 	testfixture1.v
 	+access+r
 Recompiling... reason: file './testfixture1.v' is newer than expected.
-	expected: Thu Jun 24 08:07:20 2021
-	actual:   Thu Jun 24 08:08:26 2021
+	expected: Thu Jun 24 21:53:36 2021
+	actual:   Thu Jun 24 21:54:10 2021
 file: testfixture1.v
 	module worklib.counter:v
 		errors: 0, warnings: 0
@@ -137,8 +137,6 @@ ERROR at FFT  ppoint number =977: The real response output fd2af8c0 != expectd f
 -----------------------------------------------------
 ERROR at FFT  ppoint number =991: The real response output fd2a073f != expectd fcd10718 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =992: The real response output ffe20000 != expectd ffd50000 
------------------------------------------------------
 ERROR at FFT  ppoint number =993: The real response output 007ef85b != expectd ffddf879 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =994: The real response output ffc600a8 != expectd ff880097 
@@ -211,4 +209,4 @@ FFT dataout on pattern        1023 ~        1039, FAIL!!
 Simulation complete via $finish(1) at time 50150 NS + 0
 ./testfixture1.v:256       #(`CYCLE/2); $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Jun 24, 2021 at 08:08:33 CST  (total: 00:00:04)
+TOOL:	ncverilog	15.20-s039: Exiting on Jun 24, 2021 at 21:54:16 CST  (total: 00:00:05)
