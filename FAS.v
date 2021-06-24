@@ -35,12 +35,13 @@ input signed [15:0] data;
 
 output fir_valid, fft_valid;
 output signed [15:0] fir_d;
-wire   signed [15:0] fir_d_fra12;
+wire   signed [31:0] fir_d_fra24;
+wire   signed [31:0] fft_in_data;
 output [31:0] fft_d1, fft_d2, fft_d3, fft_d4, fft_d5, fft_d6, fft_d7, fft_d8;
 output [31:0] fft_d9, fft_d10, fft_d11, fft_d12, fft_d13, fft_d14, fft_d15, fft_d0;
 output done;
 output [3:0] freq;
-assign fir_d={{4{fir_d_fra12[15]}},fir_d_fra12[15:4]};
+assign fir_d=fir_d_fra24[31:16];
 fir FIR0(
 		.clk(clk),
 		.rst(rst),
@@ -48,14 +49,16 @@ fir FIR0(
 		.data_valid(data_valid),
 
 
-		.fir_d(fir_d_fra12),
+		.fir_d(fir_d_fra24),
 		.fir_valid(fir_valid)
 );
+//assign fft_in_data={fir_d_fra24[31:16],16'h0000};
+assign fft_in_data=fir_d_fra24;
 fft FFT0(
 .clk(clk),
 		.rst(rst),
 		.fir_valid(fir_valid), // fir out fft in
-		.fir_d(fir_d_fra12),// fir out fft in
+		.fir_d(fft_in_data),// fir out fft in
 		.fft_valid(fft_valid), 
 		//	done(), 
 		//	freq(),

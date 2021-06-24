@@ -67,7 +67,7 @@ input signed [35:0] add29;
 input signed [35:0] add30;
 input signed [35:0] add31;
 input signed [35:0] add32;
-output reg signed [15:0]  result;
+output reg signed [31:0]  result;
 
 reg signed [35:0] stage2_add[15:0];
 
@@ -120,7 +120,7 @@ begin
 		stage5_add[i]=$signed(stage4_add[i*2])+$signed( stage4_add[(i*2)+1] );
 	end
 	result_=$signed(stage5_add[0])+$signed(stage5_add[1]);
-	result=result_[27:12];
+	result=result_[31:0];
 	
 end
 

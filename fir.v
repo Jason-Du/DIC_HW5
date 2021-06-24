@@ -51,7 +51,7 @@ input rst;
 input data_valid;
 input signed [15:0] data;
 
-output signed  [15:0] fir_d;
+output signed  [31:0] fir_d;
 output reg  fir_valid;
 
 reg signed [15:0] dff_register    [30:0];

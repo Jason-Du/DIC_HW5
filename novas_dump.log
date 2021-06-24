@@ -90,9 +90,9 @@ argv[0]=ncverilog
 argv[1]=testfixture1.v
 argv[2]=+access+r
 91 profile - 100
-          CPU/Mem usage: 0.050 sys,  0.050 user,  97.68M sys,  0.00M vm
+          CPU/Mem usage: 0.050 sys,  0.050 user,  97.71M sys,  0.00M vm
 92 VC callback profile - scalar:0 vector:0
-93 Wed Jun 23 20:29:52 2021
+93 Thu Jun 24 08:08:32 2021
 94 pliAppInit
 95 FSDB_GATE is disabled.
 96 Enable Parallel Dumping.
@@ -102,80 +102,80 @@ argv[2]=+access+r
 100 argv[0]: FAS.fsdb
 101 argv[0]: +struct
 102 argv[1]: +mda
-103 argv[2]: (handle)0x423b258 testfixture1.DUT
+103 argv[2]: (handle)0x47a7298 testfixture1.DUT
 104 FSDB Dumper for IUS, Release Verdi_Q-2020.03, Linux x86_64/64bit, 02/09/2020
 105 (C) 1996 - 2020 by Synopsys, Inc.
-106 sps_call_fsdbDumpfile at 0 : /home/khduh/DIC_HW5/testfixture1.v(54)
+106 sps_call_fsdbDumpfile at 0 : /home/khduh/DIC_HW5/testfixture1.v(55)
 107 argv[0]: FAS.fsdb
 108 *Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
 109 *Verdi* : Create FSDB file 'FAS.fsdb'
-110 sps_call_fsdbDumpvars at 0 : /home/khduh/DIC_HW5/testfixture1.v(55)
+110 sps_call_fsdbDumpvars at 0 : /home/khduh/DIC_HW5/testfixture1.v(56)
 111 argv[0]: +struct
 112 argv[1]: +mda
-113 argv[2]: (handle)0x423b238 testfixture1.DUT
+113 argv[2]: (handle)0x47a7278 testfixture1.DUT
 114 *Verdi* : Begin traversing the scope (testfixture1.DUT), layer (0).
 115 *Verdi* : Enable +struct and +mda dumping.
 116 *Verdi* : End of traversing.
 117 fsdbDumpvars traverse var: profile - 
-          CPU/Mem usage: 0.060 sys,  0.080 user,  185.24M sys,  0.00M vm
-                   incr: 0.000 sys,  0.020 user,  4.46M sys,  0.00M vm
-                   accu: 0.000 sys,  0.020 user,  4.46M sys,  0.00M vm
-              accu incr: 0.000 sys,  0.020 user,  4.46M sys,  0.00M vm
+          CPU/Mem usage: 0.060 sys,  0.070 user,  185.28M sys,  0.00M vm
+                   incr: 0.000 sys,  0.010 user,  4.47M sys,  0.00M vm
+                   accu: 0.000 sys,  0.010 user,  4.47M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.010 user,  4.47M sys,  0.00M vm
 
-          Count usage: 736 var,  702 idcode,  702 callback
-                 incr: 736 var,  702 idcode,  702 callback
-                 accu: 736 var,  702 idcode,  702 callback
-            accu incr: 736 var,  702 idcode,  702 callback
+          Count usage: 741 var,  707 idcode,  707 callback
+                 incr: 741 var,  707 idcode,  707 callback
+                 accu: 741 var,  707 idcode,  707 callback
+            accu incr: 741 var,  707 idcode,  707 callback
 118 VC callback profile - scalar:0 vector:0
-119 Wed Jun 23 20:29:52 2021
+119 Thu Jun 24 08:08:32 2021
 120 fsdbDumpvars: profile - 
-          CPU/Mem usage: 0.060 sys,  0.080 user,  186.29M sys,  0.00M vm
+          CPU/Mem usage: 0.060 sys,  0.070 user,  186.33M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  1.05M sys,  0.00M vm
-                   accu: 0.000 sys,  0.020 user,  5.52M sys,  0.00M vm
+                   accu: 0.000 sys,  0.010 user,  5.52M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  1.05M sys,  0.00M vm
 
-          Count usage: 736 var,  702 idcode,  702 callback
+          Count usage: 741 var,  707 idcode,  707 callback
                  incr: 0 var,  0 idcode,  0 callback
-                 accu: 736 var,  702 idcode,  702 callback
+                 accu: 741 var,  707 idcode,  707 callback
             accu incr: 0 var,  0 idcode,  0 callback
-121 VC callback profile - scalar:23 vector:679
-122 Wed Jun 23 20:29:52 2021
-123 sps_call_fsdbDumpvars at 0 : /home/khduh/DIC_HW5/testfixture1.v(56)
+121 VC callback profile - scalar:23 vector:684
+122 Thu Jun 24 08:08:32 2021
+123 sps_call_fsdbDumpvars at 0 : /home/khduh/DIC_HW5/testfixture1.v(57)
 124 *Verdi* : Begin traversing the scopes, layer (0).
 125 *Verdi* : End of traversing.
 126 fsdbDumpvars traverse var: profile - 
-          CPU/Mem usage: 0.060 sys,  0.080 user,  186.43M sys,  0.00M vm
-                   incr: 0.000 sys,  0.000 user,  0.14M sys,  0.00M vm
-                   accu: 0.000 sys,  0.000 user,  0.14M sys,  0.00M vm
-              accu incr: 0.000 sys,  0.000 user,  0.14M sys,  0.00M vm
+          CPU/Mem usage: 0.060 sys,  0.080 user,  186.47M sys,  0.00M vm
+                   incr: 0.000 sys,  0.010 user,  0.14M sys,  0.00M vm
+                   accu: 0.000 sys,  0.010 user,  0.14M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.010 user,  0.14M sys,  0.00M vm
 
-          Count usage: 1212 var,  737 idcode,  737 callback
-                 incr: 476 var,  35 idcode,  35 callback
-                 accu: 476 var,  35 idcode,  35 callback
-            accu incr: 476 var,  35 idcode,  35 callback
-127 VC callback profile - scalar:23 vector:679
-128 Wed Jun 23 20:29:52 2021
+          Count usage: 1222 var,  742 idcode,  742 callback
+                 incr: 481 var,  35 idcode,  35 callback
+                 accu: 481 var,  35 idcode,  35 callback
+            accu incr: 481 var,  35 idcode,  35 callback
+127 VC callback profile - scalar:23 vector:684
+128 Thu Jun 24 08:08:32 2021
 129 fsdbDumpvars: profile - 
-          CPU/Mem usage: 0.060 sys,  0.080 user,  186.43M sys,  0.00M vm
+          CPU/Mem usage: 0.060 sys,  0.080 user,  186.47M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
-                   accu: 0.000 sys,  0.000 user,  0.14M sys,  0.00M vm
+                   accu: 0.000 sys,  0.010 user,  0.14M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
 
-          Count usage: 1212 var,  737 idcode,  737 callback
+          Count usage: 1222 var,  742 idcode,  742 callback
                  incr: 0 var,  0 idcode,  0 callback
-                 accu: 476 var,  35 idcode,  35 callback
+                 accu: 481 var,  35 idcode,  35 callback
             accu incr: 0 var,  0 idcode,  0 callback
-130 VC callback profile - scalar:53 vector:1070
-131 Wed Jun 23 20:29:52 2021
-132 End of simulation at 4027500
-133 VC callback profile - scalar:4250 vector:725037
-134 Wed Jun 23 20:29:52 2021
+130 VC callback profile - scalar:53 vector:1080
+131 Thu Jun 24 08:08:32 2021
+132 End of simulation at 5015000
+133 VC callback profile - scalar:5076 vector:915347
+134 Thu Jun 24 08:08:33 2021
 135 Begin FSDB profile info:
-136 FSDB Writer : bc1(4250) bcn(725037) mtf/stf(0/0)
-FSDB Writer elapsed time : flush(0.278714) io wait(0.000000) theadpool wait(0.000000)
+136 FSDB Writer : bc1(5076) bcn(915347) mtf/stf(0/0)
+FSDB Writer elapsed time : flush(0.275134) io wait(0.000000) theadpool wait(0.000000)
 FSDB Writer cpu time : MT Compression : 0
 137 End FSDB profile info
-138 Parallel profile    -  Flush:4 Expand:0 ProduceWait:0 ConsumerWait:5 BlockUsed:8
-139                        ProduceTime:0.492687701 ConsumerTime:0.139986369 Buffer:64MB
+138 Parallel profile    -  Flush:4 Expand:0 ProduceWait:0 ConsumerWait:8 BlockUsed:10
+139                        ProduceTime:0.558921327 ConsumerTime:0.159430272 Buffer:64MB
 140 SimExit
 141 Sim process exit

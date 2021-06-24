@@ -32,7 +32,7 @@ module fft(
 	input		  clk;
 	input         rst;
 	input         fir_valid; // fir out signed fft in
-	input  signed [15:0] fir_d; // fir out signed fft in
+	input  signed [31:0] fir_d; // fir out signed fft in
 	output reg      fft_valid; 
 	//output        done; 
 	//output        freq;
@@ -52,16 +52,16 @@ module fft(
 	output reg signed [31:0] fft_d14; 
 	output reg signed [31:0] fft_d15; 
 	output reg signed [31:0] fft_d0;
-	reg signed [31:0] stage0_register_out [15:0];	
-	reg signed [31:0] stage1_register_out [15:0];
-	reg signed [31:0] stage2_register_out [15:0];
-	reg signed [31:0] stage3_register_out [15:0];
-	reg signed [31:0] stage4_register_out [15:0];
+	reg signed [63:0] stage0_register_out [15:0];	
+	reg signed [63:0] stage1_register_out [15:0];
+	reg signed [63:0] stage2_register_out [15:0];
+	reg signed [63:0] stage3_register_out [15:0];
+	reg signed [63:0] stage4_register_out [15:0];
 	
-	reg signed [31:0] stage0_register_in [15:0];	
-	wire signed [31:0] stage1_register_in [15:0];
-	wire signed [31:0] stage2_register_in [15:0];
-	wire signed [31:0] stage3_register_in [15:0];
+	reg signed [63:0] stage0_register_in [15:0];	
+	wire signed [63:0] stage1_register_in [15:0];
+	wire signed [63:0] stage2_register_in [15:0];
+	wire signed [63:0] stage3_register_in [15:0];
 	wire signed [31:0] stage4_register_in [15:0];
 	
 	integer i;
@@ -229,10 +229,10 @@ module fft(
 			CS<=2'b00;
 			for(i=0;i<16;i=i+1)
 			begin
-				stage0_register_out[i]<=32'd0;
-				stage1_register_out[i]<=32'd0;
-				stage2_register_out[i]<=32'd0;
-				stage3_register_out[i]<=32'd0;
+				stage0_register_out[i]<=64'd0;
+				stage1_register_out[i]<=64'd0;
+				stage2_register_out[i]<=64'd0;
+				stage3_register_out[i]<=64'd0;
 				stage4_register_out[i]<=32'd0;
 			end
 		end
@@ -252,7 +252,7 @@ module fft(
 	end
 	always@(*)
 	begin
-		stage0_register_in[0]={fir_d,16'd0};
+		stage0_register_in[0]={fir_d,32'd0};
 		for(i=0;i<15;i=i+1)
 		begin
 			stage0_register_in[i+1]=stage0_register_out[i];
