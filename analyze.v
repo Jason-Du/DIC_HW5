@@ -1,4 +1,4 @@
-`include "counter_4.v"
+//`include "counter_4.v"
 module analyze(
 		clk,
 		rst,
@@ -84,7 +84,7 @@ module analyze(
 			freq_register_out<=3'b00;
 			for(i=0;i<16;i=i+1)
 			begin
-				local_reg_resigter_in[i]<=32'd0;
+				local_reg_resigter_out[i]<=32'd0;
 			end
 			result_resigter_out<=16'd0;
 		end
@@ -144,7 +144,7 @@ module analyze(
 			//	local_reg_resigter_in[0]=local_reg_resigter_out[15];
 				for(i=0;i<16;i=i+1)
 				begin
-					local_reg_resigter_in[+1]=local_reg_resigter_out[i];
+					local_reg_resigter_in[i]=local_reg_resigter_out[i];
 				end
 			end
 		endcase

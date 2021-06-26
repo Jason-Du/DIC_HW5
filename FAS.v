@@ -1,7 +1,8 @@
+/*
 `include "fir.v"
 `include "fft.v"
 `include "analyze.v"
-
+*/
 module  FAS (
 		data_valid,// fir
 		data, // fir
@@ -52,7 +53,7 @@ fir FIR0(
 		.fir_d(fir_d_fra24),
 		.fir_valid(fir_valid)
 );
-assign fft_in_data={fir_d_fra24[31:8],8'h00};
+assign fft_in_data={fir_d_fra24[31:16],16'h0000};
 //assign fft_in_data=fir_d_fra24;
 fft FFT0(
 .clk(clk),

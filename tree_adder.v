@@ -82,7 +82,7 @@ reg signed [35:0] stage5_add[1:0];
 
 reg signed [35:0] result_ ;
 wire signed [35:0]debug ;
-
+reg signed [15:0] test ;
 integer i;
 assign debug=$signed(add1)+$signed(add2);
 always@(*)
@@ -133,8 +133,8 @@ begin
 		stage5_add[i]=$signed(stage4_add[i*2])+$signed( stage4_add[(i*2)+1] );
 	end
 	result_=$signed(stage5_add[0])+$signed(stage5_add[1]);
-	result=result_[31:0];
-	
+	test=$signed({result_[31:16]})+$signed(16'd1);
+	result=($signed(result_)>$signed(31'd0))?{result_[31:8],8'h00}:{test,16'h0000};
 end
 
 
