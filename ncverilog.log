@@ -1,11 +1,11 @@
 ncverilog(64): 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Jun 25, 2021 at 05:40:29 CST
+TOOL:	ncverilog	15.20-s039: Started on Jun 26, 2021 at 22:01:50 CST
 ncverilog
 	testfixture1.v
 	+access+r
-Recompiling... reason: file './testfixture1.v' is newer than expected.
-	expected: Fri Jun 25 05:39:52 2021
-	actual:   Fri Jun 25 05:40:28 2021
+Recompiling... reason: file './FAS.v' is newer than expected.
+	expected: Fri Jun 25 21:06:06 2021
+	actual:   Sat Jun 26 22:01:49 2021
 file: testfixture1.v
 	module worklib.counter:v
 		errors: 0, warnings: 0
@@ -16,26 +16,26 @@ ncvlog: *W,RECOME (./counter.v,1|13): recompiling design unit worklib.counter:v.
 (`include file: ./counter.v line 1, `include file: fft.v line 5, `include file: FAS.v line 2, file: testfixture1.v line 11)
 	module worklib.counter:v
 		errors: 0, warnings: 1
-	module worklib.testfixture1:v
+	module worklib.FAS:v
 		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
 	Building instance overlay tables: .................... Done
 	Generating native compiled code:
+		worklib.FAS:v <0x48e5202e>
+			streams:   1, words:   209
 		worklib.counter:v <0x3e24fd80>
 			streams:   3, words:   899
-		worklib.testfixture1:v <0x16b2a7dc>
-			streams:  22, words: 33333
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
 		                  Instances  Unique
 		Modules:                 14      12
-		Registers:              316     312
+		Registers:              323     319
 		Scalar wires:            15       -
 		Vectored wires:         186       -
-		Always blocks:           32      28
-		Initial blocks:           9       9
+		Always blocks:           34      30
+		Initial blocks:          10      10
 		Cont. assignments:        2       3
 		Pseudo assignments:      98      98
 		Simulation timescale:  10ps
@@ -53,141 +53,195 @@ FSDB Dumper for IUS, Release Verdi_Q-2020.03, Linux x86_64/64bit, 02/09/2020
 *Verdi* : End of traversing.
 *Verdi* : Begin traversing the scopes, layer (0).
 *Verdi* : End of traversing.
-ERROR at FFT  ppoint number = 1: The real response output 05adfaa5 != expectd 05a8faaa 
+ERROR at FFT  ppoint number = 0: The real response output 007e0000 != expectd 00850000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =15: The real response output 05ad055a != expectd 05a80556 
+ERROR at FFT  ppoint number = 1: The real response output 05acfaa6 != expectd 05a8faaa 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =17: The real response output 0776fd27 != expectd 0771fd2b 
+ERROR at FFT  ppoint number =15: The real response output 05ac0559 != expectd 05a80556 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =31: The real response output 077602d8 != expectd 077102d5 
+ERROR at FFT  ppoint number =16: The real response output 00c10000 != expectd 00c80000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =33: The real response output 081e0017 != expectd 081a0018 
+ERROR at FFT  ppoint number =17: The real response output 0776fd28 != expectd 0771fd2b 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =47: The real response output 081effe8 != expectd 081affe8 
+ERROR at FFT  ppoint number =31: The real response output 077602d7 != expectd 077102d5 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =49: The real response output 07890305 != expectd 07850302 
+ERROR at FFT  ppoint number =32: The real response output 00e40000 != expectd 00eb0000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =51: The real response output fff0ffdd != expectd fff0ffe1 
+ERROR at FFT  ppoint number =33: The real response output 081f0018 != expectd 081a0018 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =63: The real response output 0789fcfa != expectd 0785fcfe 
+ERROR at FFT  ppoint number =47: The real response output 081fffe7 != expectd 081affe8 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =48: The real response output 00e40000 != expectd 00eb0000 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =49: The real response output 078a0304 != expectd 07850302 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =63: The real response output 078afcfb != expectd 0785fcfe 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =64: The real response output 00c10000 != expectd 00c80000 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =65: The real response output 05ce057b != expectd 05ca0577 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =79: The real response output 05cefa84 != expectd 05cafa89 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =81: The real response output 0332071d != expectd 032f0718 
+ERROR at FFT  ppoint number =80: The real response output 007e0000 != expectd 00850000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =95: The real response output 0332f8e2 != expectd 032ff8e8 
+ERROR at FFT  ppoint number =81: The real response output 0331071d != expectd 032f0718 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =95: The real response output 0331f8e2 != expectd 032ff8e8 
 -----------------------------------------------------
 FIR dataout on pattern           0 ~         100 !!, PASS !!
+-----------------------------------------------------
+ERROR at FFT  ppoint number =96: The real response output 00270000 != expectd 002e0000 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =97: The real response output 001707a9 != expectd 001707a4 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =111: The real response output 0017f856 != expectd 0017f85c 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =113: The real response output fcfb070a != expectd fcfe0706 
+ERROR at FFT  ppoint number =112: The real response output ffc90000 != expectd ffd20000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =127: The real response output fcfbf8f5 != expectd fcfef8fa 
+ERROR at FFT  ppoint number =113: The real response output fcfb070b != expectd fcfe0706 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =129: The real response output fa52055a != expectd fa580556 
+ERROR at FFT  ppoint number =127: The real response output fcfbf8f4 != expectd fcfef8fa 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =143: The real response output fa52faa5 != expectd fa58faaa 
+ERROR at FFT  ppoint number =128: The real response output ff720000 != expectd ff7b0000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =145: The real response output f88902d8 != expectd f88f02d5 
+ERROR at FFT  ppoint number =129: The real response output fa530559 != expectd fa580556 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =159: The real response output f889fd27 != expectd f88ffd2b 
+ERROR at FFT  ppoint number =143: The real response output fa53faa6 != expectd fa58faaa 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =161: The real response output f7e1ffe8 != expectd f7e6ffe8 
+ERROR at FFT  ppoint number =144: The real response output ff2f0000 != expectd ff380000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =175: The real response output f7e10017 != expectd f7e60018 
+ERROR at FFT  ppoint number =145: The real response output f88902d7 != expectd f88f02d5 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =177: The real response output f876fcfa != expectd f87bfcfe 
+ERROR at FFT  ppoint number =159: The real response output f889fd28 != expectd f88ffd2b 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =189: The real response output 000fffdd != expectd 0010ffe1 
+ERROR at FFT  ppoint number =160: The real response output ff0c0000 != expectd ff150000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =191: The real response output f8760305 != expectd f87b0302 
+ERROR at FFT  ppoint number =161: The real response output f7e0ffe7 != expectd f7e6ffe8 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =175: The real response output f7e00018 != expectd f7e60018 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =176: The real response output ff0c0000 != expectd ff150000 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =177: The real response output f875fcfb != expectd f87bfcfe 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =191: The real response output f8750304 != expectd f87b0302 
 -----------------------------------------------------
 FIR dataout on pattern         100 ~         200 !!, PASS !!
+-----------------------------------------------------
+ERROR at FFT  ppoint number =192: The real response output ff2f0000 != expectd ff380000 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =193: The real response output fa31fa84 != expectd fa36fa89 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =207: The real response output fa31057b != expectd fa360577 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =209: The real response output fccdf8e2 != expectd fcd1f8e8 
+ERROR at FFT  ppoint number =208: The real response output ff720000 != expectd ff7b0000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =223: The real response output fccd071d != expectd fcd10718 
+ERROR at FFT  ppoint number =209: The real response output fccef8e2 != expectd fcd1f8e8 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =223: The real response output fcce071d != expectd fcd10718 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =224: The real response output ffc90000 != expectd ffd20000 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =225: The real response output ffe8f856 != expectd ffe9f85c 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =239: The real response output ffe807a9 != expectd ffe907a4 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =241: The real response output 0304f8f5 != expectd 0302f8fa 
+ERROR at FFT  ppoint number =240: The real response output 00270000 != expectd 002e0000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =255: The real response output 0304070a != expectd 03020706 
+ERROR at FFT  ppoint number =241: The real response output 0304f8f4 != expectd 0302f8fa 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =257: The real response output 05adfaa5 != expectd 05a8faaa 
+ERROR at FFT  ppoint number =255: The real response output 0304070b != expectd 03020706 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =271: The real response output 05ad055a != expectd 05a80556 
+ERROR at FFT  ppoint number =256: The real response output 007e0000 != expectd 00850000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =273: The real response output 0776fd27 != expectd 0771fd2b 
+ERROR at FFT  ppoint number =257: The real response output 05acfaa6 != expectd 05a8faaa 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =287: The real response output 077602d8 != expectd 077102d5 
+ERROR at FFT  ppoint number =271: The real response output 05ac0559 != expectd 05a80556 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =272: The real response output 00c10000 != expectd 00c80000 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =273: The real response output 0776fd28 != expectd 0771fd2b 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =287: The real response output 077602d7 != expectd 077102d5 
 -----------------------------------------------------
 FIR dataout on pattern         200 ~         300 !!, PASS !!
 -----------------------------------------------------
-ERROR at FFT  ppoint number =289: The real response output 081e0017 != expectd 081a0018 
+ERROR at FFT  ppoint number =288: The real response output 00e40000 != expectd 00eb0000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =303: The real response output 081effe8 != expectd 081affe8 
+ERROR at FFT  ppoint number =289: The real response output 081f0018 != expectd 081a0018 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =305: The real response output 07890305 != expectd 07850302 
+ERROR at FFT  ppoint number =303: The real response output 081fffe7 != expectd 081affe8 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =307: The real response output fff0ffdd != expectd fff0ffe1 
+ERROR at FFT  ppoint number =304: The real response output 00e40000 != expectd 00eb0000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =319: The real response output 0789fcfa != expectd 0785fcfe 
+ERROR at FFT  ppoint number =305: The real response output 078a0304 != expectd 07850302 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =319: The real response output 078afcfb != expectd 0785fcfe 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =320: The real response output 00c10000 != expectd 00c80000 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =321: The real response output 05ce057b != expectd 05ca0577 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =335: The real response output 05cefa84 != expectd 05cafa89 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =337: The real response output 0332071d != expectd 032f0718 
+ERROR at FFT  ppoint number =336: The real response output 007e0000 != expectd 00850000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =351: The real response output 0332f8e2 != expectd 032ff8e8 
+ERROR at FFT  ppoint number =337: The real response output 0331071d != expectd 032f0718 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =351: The real response output 0331f8e2 != expectd 032ff8e8 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =352: The real response output 00270000 != expectd 002e0000 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =353: The real response output 001707a9 != expectd 001707a4 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =367: The real response output 0017f856 != expectd 0017f85c 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =369: The real response output fcfb070a != expectd fcfe0706 
+ERROR at FFT  ppoint number =368: The real response output ffc90000 != expectd ffd20000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =383: The real response output fcfbf8f5 != expectd fcfef8fa 
+ERROR at FFT  ppoint number =369: The real response output fcfb070b != expectd fcfe0706 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =383: The real response output fcfbf8f4 != expectd fcfef8fa 
 -----------------------------------------------------
 FIR dataout on pattern         300 ~         400 !!, PASS !!
 -----------------------------------------------------
-ERROR at FFT  ppoint number =385: The real response output fa52055a != expectd fa580556 
+ERROR at FFT  ppoint number =384: The real response output ff720000 != expectd ff7b0000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =399: The real response output fa52faa5 != expectd fa58faaa 
+ERROR at FFT  ppoint number =385: The real response output fa530559 != expectd fa580556 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =401: The real response output f88902d8 != expectd f88f02d5 
+ERROR at FFT  ppoint number =399: The real response output fa53faa6 != expectd fa58faaa 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =415: The real response output f889fd27 != expectd f88ffd2b 
+ERROR at FFT  ppoint number =400: The real response output ff2f0000 != expectd ff380000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =417: The real response output f7e1ffe8 != expectd f7e6ffe8 
+ERROR at FFT  ppoint number =401: The real response output f88902d7 != expectd f88f02d5 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =431: The real response output f7e10017 != expectd f7e60018 
+ERROR at FFT  ppoint number =415: The real response output f889fd28 != expectd f88ffd2b 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =433: The real response output f876fcfa != expectd f87bfcfe 
+ERROR at FFT  ppoint number =416: The real response output ff0c0000 != expectd ff150000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =445: The real response output 000fffdd != expectd 0010ffe1 
+ERROR at FFT  ppoint number =417: The real response output f7e0ffe7 != expectd f7e6ffe8 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =447: The real response output f8760305 != expectd f87b0302 
+ERROR at FFT  ppoint number =431: The real response output f7e00018 != expectd f7e60018 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =432: The real response output ff0c0000 != expectd ff150000 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =433: The real response output f875fcfb != expectd f87bfcfe 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =447: The real response output f8750304 != expectd f87b0302 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =448: The real response output ff2f0000 != expectd ff380000 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =449: The real response output fa31fa84 != expectd fa36fa89 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =463: The real response output fa31057b != expectd fa360577 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =465: The real response output fccdf8e2 != expectd fcd1f8e8 
+ERROR at FFT  ppoint number =464: The real response output ff720000 != expectd ff7b0000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =479: The real response output fccd071d != expectd fcd10718 
+ERROR at FFT  ppoint number =465: The real response output fccef8e2 != expectd fcd1f8e8 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =479: The real response output fcce071d != expectd fcd10718 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =480: The real response output ffc90000 != expectd ffd20000 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =481: The real response output ffe8f856 != expectd ffe9f85c 
 -----------------------------------------------------
@@ -195,27 +249,37 @@ ERROR at FFT  ppoint number =495: The real response output ffe807a9 != expectd f
 -----------------------------------------------------
 FIR dataout on pattern         400 ~         500 !!, PASS !!
 -----------------------------------------------------
-ERROR at FFT  ppoint number =497: The real response output 0304f8f5 != expectd 0302f8fa 
+ERROR at FFT  ppoint number =496: The real response output 00270000 != expectd 002e0000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =511: The real response output 0304070a != expectd 03020706 
+ERROR at FFT  ppoint number =497: The real response output 0304f8f4 != expectd 0302f8fa 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =513: The real response output 05adfaa5 != expectd 05a8faaa 
+ERROR at FFT  ppoint number =511: The real response output 0304070b != expectd 03020706 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =527: The real response output 05ad055a != expectd 05a80556 
+ERROR at FFT  ppoint number =512: The real response output 007e0000 != expectd 00850000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =529: The real response output 0776fd27 != expectd 0771fd2b 
+ERROR at FFT  ppoint number =513: The real response output 05acfaa6 != expectd 05a8faaa 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =543: The real response output 077602d8 != expectd 077102d5 
+ERROR at FFT  ppoint number =527: The real response output 05ac0559 != expectd 05a80556 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =545: The real response output 081e0017 != expectd 081a0018 
+ERROR at FFT  ppoint number =528: The real response output 00c10000 != expectd 00c80000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =559: The real response output 081effe8 != expectd 081affe8 
+ERROR at FFT  ppoint number =529: The real response output 0776fd28 != expectd 0771fd2b 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =561: The real response output 07890305 != expectd 07850302 
+ERROR at FFT  ppoint number =543: The real response output 077602d7 != expectd 077102d5 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =563: The real response output fff0ffdd != expectd fff0ffe1 
+ERROR at FFT  ppoint number =544: The real response output 00e40000 != expectd 00eb0000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =575: The real response output 0789fcfa != expectd 0785fcfe 
+ERROR at FFT  ppoint number =545: The real response output 081f0018 != expectd 081a0018 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =559: The real response output 081fffe7 != expectd 081affe8 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =560: The real response output 00e40000 != expectd 00eb0000 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =561: The real response output 078a0304 != expectd 07850302 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =575: The real response output 078afcfb != expectd 0785fcfe 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =576: The real response output 00c10000 != expectd 00c80000 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =577: The real response output 05ce057b != expectd 05ca0577 
 -----------------------------------------------------
@@ -223,51 +287,71 @@ ERROR at FFT  ppoint number =591: The real response output 05cefa84 != expectd 0
 -----------------------------------------------------
 FIR dataout on pattern         500 ~         600 !!, PASS !!
 -----------------------------------------------------
-ERROR at FFT  ppoint number =593: The real response output 0332071d != expectd 032f0718 
+ERROR at FFT  ppoint number =592: The real response output 007e0000 != expectd 00850000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =607: The real response output 0332f8e2 != expectd 032ff8e8 
+ERROR at FFT  ppoint number =593: The real response output 0331071d != expectd 032f0718 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =607: The real response output 0331f8e2 != expectd 032ff8e8 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =608: The real response output 00270000 != expectd 002e0000 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =609: The real response output 001707a9 != expectd 001707a4 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =623: The real response output 0017f856 != expectd 0017f85c 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =625: The real response output fcfb070a != expectd fcfe0706 
+ERROR at FFT  ppoint number =624: The real response output ffc90000 != expectd ffd20000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =639: The real response output fcfbf8f5 != expectd fcfef8fa 
+ERROR at FFT  ppoint number =625: The real response output fcfb070b != expectd fcfe0706 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =641: The real response output fa52055a != expectd fa580556 
+ERROR at FFT  ppoint number =639: The real response output fcfbf8f4 != expectd fcfef8fa 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =655: The real response output fa52faa5 != expectd fa58faaa 
+ERROR at FFT  ppoint number =640: The real response output ff720000 != expectd ff7b0000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =657: The real response output f88902d8 != expectd f88f02d5 
+ERROR at FFT  ppoint number =641: The real response output fa530559 != expectd fa580556 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =671: The real response output f889fd27 != expectd f88ffd2b 
+ERROR at FFT  ppoint number =655: The real response output fa53faa6 != expectd fa58faaa 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =673: The real response output f7e1ffe8 != expectd f7e6ffe8 
+ERROR at FFT  ppoint number =656: The real response output ff2f0000 != expectd ff380000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =687: The real response output f7e10017 != expectd f7e60018 
+ERROR at FFT  ppoint number =657: The real response output f88902d7 != expectd f88f02d5 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =689: The real response output f876fcfa != expectd f87bfcfe 
+ERROR at FFT  ppoint number =671: The real response output f889fd28 != expectd f88ffd2b 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =701: The real response output 000fffdd != expectd 0010ffe1 
+ERROR at FFT  ppoint number =672: The real response output ff0c0000 != expectd ff150000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =703: The real response output f8760305 != expectd f87b0302 
+ERROR at FFT  ppoint number =673: The real response output f7e0ffe7 != expectd f7e6ffe8 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =687: The real response output f7e00018 != expectd f7e60018 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =688: The real response output ff0c0000 != expectd ff150000 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =689: The real response output f875fcfb != expectd f87bfcfe 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =703: The real response output f8750304 != expectd f87b0302 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =704: The real response output ff2f0000 != expectd ff380000 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =705: The real response output fa31fa84 != expectd fa36fa89 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =719: The real response output fa31057b != expectd fa360577 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =721: The real response output fccdf8e2 != expectd fcd1f8e8 
+ERROR at FFT  ppoint number =720: The real response output ff720000 != expectd ff7b0000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =735: The real response output fccd071d != expectd fcd10718 
+ERROR at FFT  ppoint number =721: The real response output fccef8e2 != expectd fcd1f8e8 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =735: The real response output fcce071d != expectd fcd10718 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =736: The real response output ffc90000 != expectd ffd20000 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =737: The real response output ffe8f856 != expectd ffe9f85c 
 -----------------------------------------------------
 ERROR at FFT  ppoint number =751: The real response output ffe807a9 != expectd ffe907a4 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =753: The real response output 0304f8f5 != expectd 0302f8fa 
+ERROR at FFT  ppoint number =752: The real response output 00270000 != expectd 002e0000 
 -----------------------------------------------------
-ERROR at FFT  ppoint number =767: The real response output 0304070a != expectd 03020706 
+ERROR at FFT  ppoint number =753: The real response output 0304f8f4 != expectd 0302f8fa 
+-----------------------------------------------------
+ERROR at FFT  ppoint number =767: The real response output 0304070b != expectd 03020706 
 -----------------------------------------------------
 -----------------------------------------------------
 
@@ -275,6 +359,6 @@ Error!!! There are more than          48 errors for FFT output !
 -------------------------FAIL------------------------
 
 Simulation complete via $finish(1) at time 40325 NS + 2
-./testfixture1.v:233 		$finish;
+./testfixture1.v:324 		$finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Jun 25, 2021 at 05:40:34 CST  (total: 00:00:05)
+TOOL:	ncverilog	15.20-s039: Exiting on Jun 26, 2021 at 22:01:55 CST  (total: 00:00:05)

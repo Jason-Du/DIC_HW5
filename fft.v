@@ -72,6 +72,7 @@ module fft(
 	wire [9:0] FFT_C1_count;
 	reg FFT_C1_keep;
 	reg FFT_C1_clear;
+	reg debug;
 	reg [1:0] CS;
 	reg [1:0] NS;
 	localparam IDLE       =2'b00;
@@ -89,7 +90,7 @@ module fft(
 	.rst(rst),
 	.count(FFT_C1_count),
 	.clear(FFT_C1_clear),
-	.keep(FFT_C1_keep)
+	.keep(debug)
 );
     fft_stage1 FFt_S1(
 		.stage1_data0_in(stage0_register_in[15]),
@@ -299,11 +300,9 @@ module fft(
 		 fft_d15=stage4_register_out[15]; 
 
 	end
+
 	always@(*)
 	begin
-		
-		
-		
 		case(CS)
 			IDLE:
 			begin
@@ -311,8 +310,9 @@ module fft(
 				FFT_C0_keep=fir_valid?1'b0:1'b1;
 				FFT_C0_clear=fir_valid?1'b0:1'b1;
 				FFT_C1_clear=fir_valid?1'b0:1'b1;
-				FFT_C1_keep=(fir_valid&&fft_valid)?1'b0:1'b1;
+				FFT_C1_keep=1'b1;
 				fft_valid=1'b0;
+				debug=1'b1;
 			end
 			FIRST_DATA:
 			begin
@@ -322,22 +322,28 @@ module fft(
 				FFT_C1_clear=fir_valid?1'b0:1'b1;
 				FFT_C1_keep=(fir_valid&&fft_valid)?1'b0:1'b1;
 				fft_valid=(FFT_C0_count==10'd19)?1'b1:1'b0;
+				debug=(fir_valid&&fft_valid)?1'b0:1'b1;
 			end
 			END:
 			begin
-				NS=(FFT_C1_count==10'd63)?IDLE:END;
+				NS=(FFT_C1_count==10'd64)?IDLE:END;
 				
 				fft_valid=(FFT_C0_count[3:0]==4'd15)?1'b1:1'b0;
 				FFT_C0_keep=1'b0;
 				FFT_C0_clear=(FFT_C0_count==10'd15)?1'b1:1'b0;
-				FFT_C1_clear=(FFT_C1_count==10'd63)?1'b0:1'b1;
-				FFT_C1_keep=1'b0;
+				FFT_C1_clear=(FFT_C1_count==10'd64)?1'b1:1'b0;
+				FFT_C1_keep=(fir_valid && fft_valid)?1'b0:1'b1;
+				debug=(fir_valid && fft_valid)?1'b0:1'b1;
 			end
 			default:
 			begin
 				NS=IDLE;
 				fft_valid=1'b0;
-				FFT_C0_clear=1'b0;
+				FFT_C0_clear=1'b1;
+				FFT_C1_clear=1'b1;
+				FFT_C0_keep=1'b0;
+				FFT_C1_keep=1'b0;
+				debug=1'b0;
 			end
 		endcase
 		

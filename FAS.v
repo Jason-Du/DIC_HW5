@@ -52,8 +52,8 @@ fir FIR0(
 		.fir_d(fir_d_fra24),
 		.fir_valid(fir_valid)
 );
-//assign fft_in_data={fir_d_fra24[31:16],16'h0000};
-assign fft_in_data=fir_d_fra24;
+assign fft_in_data={fir_d_fra24[31:8],8'h00};
+//assign fft_in_data=fir_d_fra24;
 fft FFT0(
 .clk(clk),
 		.rst(rst),
@@ -62,6 +62,7 @@ fft FFT0(
 		.fft_valid(fft_valid), 
 		//	done(), 
 		//	freq(),
+		.fft_d0(fft_d0),
 		.fft_d1(fft_d1), 
 		.fft_d2(fft_d2), 
 		.fft_d3(fft_d3), 
@@ -76,8 +77,8 @@ fft FFT0(
 		.fft_d12(fft_d12), 
 		.fft_d13(fft_d13), 
 		.fft_d14(fft_d14), 
-		.fft_d15(fft_d15), 
-		.fft_d0(fft_d0)
+		.fft_d15(fft_d15)
+
 );
 analyze ANA0(
 		.clk(clk),

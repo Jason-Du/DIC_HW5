@@ -175,12 +175,28 @@ module fft_stage3(
 		 
 		 stage3_data12_out_img = $signed(stage3_data12_in[31:0])  + $signed(stage3_data14_in[31:0]);
 		 stage3_data13_out_img = $signed(stage3_data13_in[31:0])  + $signed(stage3_data15_in[31:0]);
+		 
 		 stage3_data14_out_img = $signed(stage3_data12_in[31:0])  - $signed(stage3_data14_in[31:0]);
 		 stage3_data15_out_img_inv=$signed(stage3_data13_in[63:32]) - $signed(stage3_data15_in[63:32]);
 		 stage3_data15_out_img = $signed(~stage3_data15_out_img_inv)+$signed(32'h0000_0001);
-		 
-		 
-		 
+		 /*
+		 stage3_data0_out={stage3_data0_out_real[31:4],4'h0,stage3_data0_out_img[31:4],4'h0};
+		 stage3_data1_out={stage3_data1_out_real[31:4],4'h0,stage3_data1_out_img[31:4],4'h0};
+		 stage3_data2_out={stage3_data2_out_real[31:4],4'h0,stage3_data2_out_img[31:4],4'h0};
+		 stage3_data3_out={stage3_data3_out_real[31:4],4'h0,stage3_data3_out_img[31:4],4'h0};
+		 stage3_data4_out={stage3_data4_out_real[31:4],4'h0,stage3_data4_out_img[31:4],4'h0};
+		 stage3_data5_out={stage3_data5_out_real[31:4],4'h0,stage3_data5_out_img[31:4],4'h0};
+		 stage3_data6_out={stage3_data6_out_real[31:4],4'h0,stage3_data6_out_img[31:4],4'h0};
+		 stage3_data7_out={stage3_data7_out_real[31:4],4'h0,stage3_data7_out_img[31:4],4'h0};
+		 stage3_data8_out={stage3_data8_out_real[31:4],4'h0,stage3_data8_out_img[31:4],4'h0};
+		 stage3_data9_out={stage3_data9_out_real[31:4],4'h0,stage3_data9_out_img[31:4],4'h0};
+		 stage3_data10_out={stage3_data10_out_real[31:4],4'h0,stage3_data10_out_img[31:4],4'h0};
+		 stage3_data11_out={stage3_data11_out_real[31:4],4'h0,stage3_data11_out_img[31:4],4'h0};
+		 stage3_data12_out={stage3_data12_out_real[31:4],4'h0,stage3_data12_out_img[31:4],4'h0};
+		 stage3_data13_out={stage3_data13_out_real[31:4],4'h0,stage3_data13_out_img[31:4],4'h0};
+		 stage3_data14_out={stage3_data14_out_real[31:4],4'h0,stage3_data14_out_img[31:4],4'h0};
+		 stage3_data15_out={stage3_data15_out_real[31:4],4'h0,stage3_data15_out_img[31:4],4'h0};
+		 */
 		 
 		 stage3_data0_out={stage3_data0_out_real,stage3_data0_out_img};
 		 stage3_data1_out={stage3_data1_out_real,stage3_data1_out_img};

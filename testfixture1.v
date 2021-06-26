@@ -72,6 +72,7 @@ initial begin
    
 end
 
+
 always begin #(`CYCLE/2) clk = ~clk; end
 
 initial begin
@@ -79,7 +80,97 @@ initial begin
    #(`CYCLE*0.5)   reset = 1'b1; 
    #(`CYCLE*2); #0.5;   reset = 1'b0; en = 1;
 end
+///////////////////////
 
+`define IN_FILE  "in_file"
+`define OUT_FILE  "out_file.txt"
+integer debug_i;
+integer fp_w=0;
+	reg [63:0] debug_mem_in[15:0];
+	reg [63:0] debug_mem_out[15:0];
+	
+reg fft_debug_flag;
+reg [63:0] data_in;
+always@(posedge clk)
+begin
+	debug_flag<=( (DUT.FFT0.FFT_C0_count==10'd17)&&(DUT.FFT0.CS==2'd1) )?1'b1:1'b0;
+	if((DUT.FFT0.FFT_C0_count==10'd18)&&(DUT.FFT0.CS==2'd1))
+	begin
+		for (debug_i=0; debug_i<16; debug_i=debug_i+1)
+		begin
+			debug_mem_in[debug_i]<=DUT.FFT0.stage3_register_out[debug_i];
+			debug_mem_out[debug_i]<=DUT.FFT0.stage4_register_in[debug_i];
+		end
+	end
+end
+always@(posedge clk)
+begin
+	if(fft_debug_flag)
+	begin
+		fp_w= $fopen({`IN_FILE,"_real.txt"}, "w");
+		for (debug_i=0; debug_i<16; debug_i=debug_i+1)
+		begin
+			data_in=debug_mem_in[debug_i];
+			$fwrite(fp_w,"%8h,",data_in[63:32]);
+		end
+		$fclose(fp_w);
+		fp_w= $fopen({`IN_FILE,"_img.txt"}, "w");
+		for (debug_i=0; debug_i<16; debug_i=debug_i+1)
+		begin
+			data_in=debug_mem_in[debug_i];
+			$fwrite(fp_w,"%8h,",data_in[31:0]);
+		end
+		$fclose(fp_w);
+		/*
+		fp_w= $fopen(`OUT_FILE, "w");
+		for (debug_i=0; debug_i<16; debug_i=debug_i+1)
+		begin
+			$fwrite(fp_w,"%16h\n",debug_mem_out[debug_i]);
+		end
+		$fclose(fp_w);
+		*/
+		fp_w= $fopen(`OUT_FILE, "w");
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data0_out_real,DUT.FFT0.FFt_S4.stage4_data0_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data1_out_real,DUT.FFT0.FFt_S4.stage4_data1_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data2_out_real,DUT.FFT0.FFt_S4.stage4_data2_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data3_out_real,DUT.FFT0.FFt_S4.stage4_data3_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data4_out_real,DUT.FFT0.FFt_S4.stage4_data4_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data5_out_real,DUT.FFT0.FFt_S4.stage4_data5_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data6_out_real,DUT.FFT0.FFt_S4.stage4_data6_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data7_out_real,DUT.FFT0.FFt_S4.stage4_data7_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data8_out_real,DUT.FFT0.FFt_S4.stage4_data8_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data9_out_real,DUT.FFT0.FFt_S4.stage4_data9_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data10_out_real,DUT.FFT0.FFt_S4.stage4_data10_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data11_out_real,DUT.FFT0.FFt_S4.stage4_data11_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data12_out_real,DUT.FFT0.FFt_S4.stage4_data12_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data13_out_real,DUT.FFT0.FFt_S4.stage4_data13_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data14_out_real,DUT.FFT0.FFt_S4.stage4_data14_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data15_out_real,DUT.FFT0.FFt_S4.stage4_data15_out_img});
+		$fclose(fp_w);
+		/*
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data0_out_real,DUT.FFT0.FFt_S4.stage4_data0_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data8_out_real,DUT.FFT0.FFt_S4.stage4_data8_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data4_out_real,DUT.FFT0.FFt_S4.stage4_data4_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data12_out_real,DUT.FFT0.FFt_S4.stage4_data12_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data2_out_real,DUT.FFT0.FFt_S4.stage4_data2_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data10_out_real,DUT.FFT0.FFt_S4.stage4_data10_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data6_out_real,DUT.FFT0.FFt_S4.stage4_data6_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data14_out_real,DUT.FFT0.FFt_S4.stage4_data14_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data1_out_real,DUT.FFT0.FFt_S4.stage4_data1_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data9_out_real,DUT.FFT0.FFt_S4.stage4_data9_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data5_out_real,DUT.FFT0.FFt_S4.stage4_data5_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data13_out_real,DUT.FFT0.FFt_S4.stage4_data13_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data3_out_real,DUT.FFT0.FFt_S4.stage4_data3_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data11_out_real,DUT.FFT0.FFt_S4.stage4_data11_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data7_out_real,DUT.FFT0.FFt_S4.stage4_data7_out_img});
+		$fwrite(fp_w,"%16h\n",{DUT.FFT0.FFt_S4.stage4_data15_out_real,DUT.FFT0.FFt_S4.stage4_data15_out_img});
+		$fclose(fp_w);
+		*/
+		
+	end
+end
+
+//////////////////////////
 // data input & ready
 always@(negedge clk ) begin
 	if (en) begin
