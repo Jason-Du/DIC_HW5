@@ -1,7 +1,7 @@
 1624626348 /home/khduh/DIC_HW5/FAS.v
-1624388104 /home/khduh/DIC_HW5/testfixture2.v
+1624730424 /home/khduh/DIC_HW5/testfixture2.v
 1624729437 /home/khduh/DIC_HW5/testfixture1.v
-1623770856 /home/khduh/DIC_HW5/analyze.v
+1624731388 /home/khduh/DIC_HW5/analyze.v
 1624727442 /home/khduh/DIC_HW5/fir.v
 1624728062 /home/khduh/DIC_HW5/tree_adder.v
 1624706641 /home/khduh/DIC_HW5/fft.v

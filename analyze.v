@@ -149,14 +149,26 @@ module analyze(
 			end
 		endcase
 	end
-	
+	reg signed [15:0] compare_V1_R;
+	reg signed [15:0] compare_V1_I;
+	reg signed [15:0] compare_V2_R;
+	reg signed [15:0] compare_V2_I;
 	always@(*)
 	begin
+		compare_V1_R=(compare_V1[31:16]>16'd0)?compare_V1_R:$signed(compare_V1_R)+$signed(16'd1);
+		compare_V2_R=(compare_V2[31:16]>16'd0)?compare_V2_R:$signed(compare_V2_R)+$signed(16'd1);
+		compare_V1_I=(compare_V1[15:0]>16'd0)?compare_V1_I:$signed(compare_V1_I)+$signed(16'd1);
+		compare_V2_I=(compare_V2[15:0]>16'd0)?compare_V2_I:$signed(compare_V2_I)+$signed(16'd1);
+		mult1_real= $signed(compare_V1_R)*$signed(compare_V1_R) ; 
+		mult2_real= $signed(compare_V2_R)*$signed(compare_V2_R) ;
+		mult1_img= $signed(compare_V1_I)*$signed(compare_V1_I) ;
+		mult2_img= $signed(compare_V2_I)*$signed(compare_V2_I) ;
+	/*
 		mult1_real= $signed(compare_V1[31:16])*$signed(compare_V1[31:16]) ; 
 		mult2_real= $signed(compare_V2[31:16])*$signed(compare_V2[31:16]) ;
 		mult1_img= $signed(compare_V1[15:0])*$signed(compare_V1[15:0]) ;
 		mult2_img= $signed(compare_V2[15:0])*$signed(compare_V2[15:0]) ;
-		
+		*/
 		mult1_value=$signed (mult1_real[23:8])+$signed (mult1_img[23:8]);
 		mult2_value=$signed (mult2_real[23:8])+$signed (mult2_img[23:8]);
 		
