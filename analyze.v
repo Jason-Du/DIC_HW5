@@ -50,6 +50,10 @@ module analyze(
 		reg signed [15:0] result_resigter_in;
 		reg signed [15:0] result_resigter_out;
 		reg        [ 3:0] freq_register_out;
+		wire signed [15:0] compare_V1_R;
+		wire signed [15:0] compare_V1_I;
+		wire signed [15:0] compare_V2_R;
+		wire signed [15:0] compare_V2_I;
 		integer i ;
 	
 		wire [3:0] ANA_C0_count;
@@ -81,7 +85,7 @@ module analyze(
 		if(rst)
 		begin
 			CS<=2'b00;
-			freq_register_out<=3'b00;
+			freq_register_out<=4'b0000;
 			for(i=0;i<16;i=i+1)
 			begin
 				local_reg_resigter_out[i]<=32'd0;
@@ -149,16 +153,21 @@ module analyze(
 			end
 		endcase
 	end
-	reg signed [15:0] compare_V1_R;
-	reg signed [15:0] compare_V1_I;
-	reg signed [15:0] compare_V2_R;
-	reg signed [15:0] compare_V2_I;
+	
+		assign compare_V1_R=(compare_V1[31:16]>16'd0)?compare_V1[31:16]:($signed(compare_V1[31:16])+$signed(16'd1));
+		assign compare_V2_R=(compare_V2[31:16]>16'd0)?compare_V2[31:16]:($signed(compare_V2[31:16])+$signed(16'd1));
+		assign compare_V1_I=(compare_V1[15:0]>16'd0)?compare_V1[15:0]:($signed(compare_V1[15:0])+$signed(16'd1));
+		assign compare_V2_I=(compare_V2[15:0]>16'd0)?compare_V2[15:0]:($signed(compare_V2[15:0])+$signed(16'd1));
+		
+		/*
+		assign compare_V1_R=(compare_V1[31:16]>16'd0)?compare_V1_R:($signed(compare_V1_R)+$signed(16'd1));
+		assign compare_V2_R=(compare_V2[31:16]>16'd0)?compare_V2_R:($signed(compare_V2_R)+$signed(16'd1));
+		assign compare_V1_I=(compare_V1[15:0]>16'd0)?compare_V1_I:($signed(compare_V1_I)+$signed(16'd1));
+		assign compare_V2_I=(compare_V2[15:0]>16'd0)?compare_V2_I:($signed(compare_V2_I)+$signed(16'd1));
+		*/
 	always@(*)
 	begin
-		compare_V1_R=(compare_V1[31:16]>16'd0)?compare_V1_R:$signed(compare_V1_R)+$signed(16'd1);
-		compare_V2_R=(compare_V2[31:16]>16'd0)?compare_V2_R:$signed(compare_V2_R)+$signed(16'd1);
-		compare_V1_I=(compare_V1[15:0]>16'd0)?compare_V1_I:$signed(compare_V1_I)+$signed(16'd1);
-		compare_V2_I=(compare_V2[15:0]>16'd0)?compare_V2_I:$signed(compare_V2_I)+$signed(16'd1);
+		
 		mult1_real= $signed(compare_V1_R)*$signed(compare_V1_R) ; 
 		mult2_real= $signed(compare_V2_R)*$signed(compare_V2_R) ;
 		mult1_img= $signed(compare_V1_I)*$signed(compare_V1_I) ;

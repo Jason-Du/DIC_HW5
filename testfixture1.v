@@ -8,7 +8,7 @@
 
 `define fir_range_limit 1
 `define fft_range_limit 3
-`include "FAS.v"
+//`include "FAS.v"
 module testfixture1;
 
 reg   clk ;

@@ -1,32 +1,79 @@
 ncverilog(64): 15.20-s039: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s039: Started on Jun 27, 2021 at 02:20:31 CST
+TOOL:	ncverilog	15.20-s039: Started on Jun 27, 2021 at 15:31:01 CST
 ncverilog
 	testfixture1.v
 	+access+r
-Recompiling... reason: file './FAS.v' is newer than expected.
-	expected: Sun Jun 27 02:19:10 2021
-	actual:   Sun Jun 27 02:20:21 2021
 file: testfixture1.v
+	module worklib.counter:v
+		errors: 0, warnings: 0
+	module worklib.tree_adder:v
+		errors: 0, warnings: 0
+	module worklib.fir:v
+		errors: 0, warnings: 0
+	module worklib.fft_stage1:v
+		errors: 0, warnings: 0
+	module worklib.fft_stage2:v
+		errors: 0, warnings: 0
+	module worklib.fft_stage3:v
+		errors: 0, warnings: 0
+	module worklib.fft_stage4:v
+		errors: 0, warnings: 0
+module counter(
+             |
+ncvlog: *W,RECOME (./counter.v,1|13): recompiling design unit worklib.counter:v.
+	First compiled from line 1 of counter.v.
+(`include file: ./counter.v line 1, `include file: fft.v line 6, `include file: FAS.v line 3, file: testfixture1.v line 11)
+	module worklib.counter:v
+		errors: 0, warnings: 1
+	module worklib.fft:v
+		errors: 0, warnings: 0
+	module worklib.counter_4:v
+		errors: 0, warnings: 0
+	module worklib.analyze:v
+		errors: 0, warnings: 0
 	module worklib.FAS:v
+		errors: 0, warnings: 0
+	module worklib.testfixture1:v
 		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
-		Caching library 'worklib' ....... Done
 	Building instance overlay tables: .................... Done
 	Generating native compiled code:
 		worklib.FAS:v <0x48e5202e>
 			streams:   1, words:   209
+		worklib.analyze:v <0x604483ec>
+			streams:  10, words: 16571
+		worklib.counter:v <0x3e24fd80>
+			streams:   3, words:   899
+		worklib.counter_4:v <0x2077550a>
+			streams:   3, words:   875
+		worklib.fft:v <0x4ffb0e8c>
+			streams:  70, words: 66030
+		worklib.fft_stage1:v <0x3fcbc4f4>
+			streams:   1, words: 11156
+		worklib.fft_stage2:v <0x70630d07>
+			streams:   1, words: 12370
+		worklib.fft_stage3:v <0x3c38e2f1>
+			streams:   1, words:  8725
+		worklib.fft_stage4:v <0x4c67d0db>
+			streams:   1, words:  6883
+		worklib.fir:v <0x6b46fbed>
+			streams:  40, words: 50758
+		worklib.testfixture1:v <0x14a4dffc>
+			streams:  26, words: 58856
+		worklib.tree_adder:v <0x5d9c29da>
+			streams:   2, words:  9202
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
 		                  Instances  Unique
 		Modules:                 14      12
-		Registers:              329     325
+		Registers:              325     321
 		Scalar wires:            15       -
-		Vectored wires:         186       -
+		Vectored wires:         190       -
 		Always blocks:           34      30
 		Initial blocks:          11      11
-		Cont. assignments:        2       3
+		Cont. assignments:        4       7
 		Pseudo assignments:      98      98
 		Simulation timescale:  10ps
 	Writing initial simulation snapshot: worklib.testfixture1:v
@@ -132,4 +179,4 @@ Congratulations! All data have been generated successfully!
 Simulation complete via $finish(1) at time 53200 NS + 0
 ./testfixture1.v:357       #(`CYCLE/2); $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s039: Exiting on Jun 27, 2021 at 02:20:35 CST  (total: 00:00:04)
+TOOL:	ncverilog	15.20-s039: Exiting on Jun 27, 2021 at 15:31:06 CST  (total: 00:00:05)
